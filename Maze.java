@@ -93,13 +93,19 @@ public class Maze {
 			{ '*', 's', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*',
 					'*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*',
 					'*', '*', '*', '*' } };
-
+/**
+ * The method that use for find the way out of the maze.
+ * @param i is the row.
+ * @param j is the column.
+ * @param direction is the previous way that runner goes.
+ * @return
+ */
 	public static boolean runner(int i, int j, char direction) {
-		if (i >= 30 || i <= 0 || j >= 45 || j <= 0) {
-			return false;
-		}
 		if (i == 1 && j == 44) {
 			return true;
+		}
+		if (i >= 30 || i <= 0 || j >= 45 || j <= 0) {
+			return false;
 		}
 		if (maze[i][j] == '*') {
 			return false;
@@ -116,8 +122,8 @@ public class Maze {
 		} else if (direction != 'r' && runner(i, j - 1, 'l')) {
 			maze[i][j - 1] = '.';
 			return true;
-		}
-		return true;
+		} 
+		return false;
 	}
 
 	public static void main(String[] args) {
@@ -128,6 +134,5 @@ public class Maze {
 			}
 			System.out.println("");
 		}
-
 	}
 }
